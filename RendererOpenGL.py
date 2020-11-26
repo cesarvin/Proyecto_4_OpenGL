@@ -15,15 +15,13 @@ screen = pygame.display.set_mode(screenSize, DOUBLEBUF | OPENGL)
 # Inicializacion de nuestro Renderer en OpenGL
 r = Renderer(screen)
 r.camPosition.z = 1
-# r.camPosition.y = 0
+r.camPosition.y = 0.5
 r.pointLight.x = 200
 r.pointLight.z = 200
 
 r.setShaders(shaders.vertex_shader, shaders.fragment_shader)
 
-r.modelList.append(Model('modelos/Hamster.obj', 'modelos/Hamster.bmp'))
-
-
+r.modelList.append(Model('modelos/Pikachu.obj', 'modelos/Pikachu.bmp'))
 
 isPlaying = True
 while isPlaying:
@@ -40,9 +38,9 @@ while isPlaying:
         r.camPosition.y += 0.2 * deltaTime
     if keys[pygame.K_s]:
         r.camPosition.y -= 0.2 * deltaTime
-    if keys[pygame.K_z]:
+    if keys[pygame.K_i]:
         r.camPosition.z -= 0.2 * deltaTime        
-    if keys[pygame.K_x]:
+    if keys[pygame.K_o]:
         r.camPosition.z += 0.2 * deltaTime        
     if keys[pygame.K_UP]:
         r.rx += 25 * deltaTime 
@@ -52,10 +50,37 @@ while isPlaying:
         r.ry += 25 * deltaTime 
     if keys[pygame.K_RIGHT]:
         r.ry -= 25 * deltaTime 
-    if keys[pygame.K_y]:
+    if keys[pygame.K_e]:
         r.rz += 25 * deltaTime 
-    if keys[pygame.K_u]:
+    if keys[pygame.K_q]:
         r.rz -= 25 * deltaTime 
+
+    if keys[pygame.K_c]:
+        r.modelList.clear()
+        r.camPosition.z = 1
+        r.camPosition.y = 0.5
+        r.modelList.append(Model('modelos/Pikachu.obj', 'modelos/Pikachu.bmp'))
+    if keys[pygame.K_v]:
+        r.modelList.clear()
+        r.camPosition.z = 1
+        r.camPosition.y = 0
+        r.modelList.append(Model('modelos/Hamster.obj', 'modelos/Hamster.bmp'))
+    if keys[pygame.K_b]:
+        r.modelList.clear()
+        r.camPosition.z = 0.3
+        r.camPosition.y = -0.1
+        r.modelList.append(Model('modelos/Microphone.obj', 'modelos/Microphone.bmp'))
+    if keys[pygame.K_n]:
+        r.modelList.clear()
+        r.camPosition.z = 15
+        r.camPosition.y = 2
+        r.modelList.append(Model('modelos/Giraffe_Car.obj', 'modelos/Giraffe_Car.bmp'))
+    if keys[pygame.K_m]:
+        r.modelList.clear()
+        r.camPosition.z = 3
+        r.camPosition.y = 0
+        r.modelList.append(Model('modelos/Model.obj', 'modelos/Model.bmp'))
+    
 
     for ev in pygame.event.get():
         if ev.type == pygame.QUIT:
