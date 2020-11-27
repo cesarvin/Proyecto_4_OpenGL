@@ -1,0 +1,30 @@
+Ejecutar el archivo RenderOpenGL.py
+
+Controles:
+
+W para mover en la pos Y+ (arriba)
+S para mover en la pos Y- (abajo)
+A para mover en la pos X- (izquierda)
+D para mover en la pos X+ (derecha)
+
+I para Zoom in (acercar)
+O para Zoom out (alejar)
+
+UP para rotar en eje X+
+DOWN para rotar en eje X-
+LEFT para rotar en eje Z-
+RIGTH para rotar en eje Z+ 
+Q para rotar en eje Y-
+E para rotar en eje Y+
+
+ESC para salir
+
+Click para cambiar el angulo de la luz
+
+PARA CAMBIAR DE MODELO
+
+C para pikachu
+V para hamster
+B para microfono
+N para girafa bus
+M para persona

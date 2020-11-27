@@ -95,6 +95,7 @@ class Renderer(object):
         self.temp = 0
 
         self.modelList = []
+        self.courrentModel = 0
 
         # View Matrix
         self.camPosition = glm.vec3(0,0,0)
@@ -157,13 +158,13 @@ class Renderer(object):
                         1, 1, 1, 1)
 
 
-        for model in self.modelList:
-            if self.active_shader:
-                model.rotation = glm.vec3(self.rx,self.ry,self.rz)
-                glUniformMatrix4fv(glGetUniformLocation(self.active_shader, "model"),
-                                   1, GL_FALSE, glm.value_ptr( model.getMatrix() ))
+            model = self.modelList[self.courrentModel]
+            model.rotation = glm.vec3(self.rx,self.ry,self.rz)
+        
+            glUniformMatrix4fv(glGetUniformLocation(self.active_shader, "model"),
+                                1, GL_FALSE, glm.value_ptr( model.getMatrix() ))
 
-            model.renderInScene()
+        self.modelList[self.courrentModel].renderInScene()
 
 
 
